@@ -14,10 +14,10 @@ Still alot of work to do, for example:
 - Make the view.
 - Make the form.
 - Show the detailed result, such as :
-    - Show the point distance to the centroid (might be helpfull and usefull to show distance from each final centroid).
-    - Injecting the initialization centroid (manual selection first centroid).
-    - Show how many iteration has been done.
-    - Group the data base on each iteration.
+    - Show the point distance to the centroid (might be helpfull and usefull to show distance from the centroid on every iteration). => DONE!
+    - Injecting the initialization centroid (manual selection first centroid). => DONE!
+    - Show how many iteration has been done. => DONE!
+    - Group the data base on each iteration. => DONE!
 
 You can take a look how i implement the Library From HomeController.php
 
