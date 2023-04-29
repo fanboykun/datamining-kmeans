@@ -28,12 +28,11 @@ class HomeController extends Controller
             ];
         })->toArray();
         $space->addAllPointToSpace($points, 'key', 'val');
-        $data = collect($space->solveWithIterationCallback(2));
-        // dd($data->all());
+        $dataset = collect($space->solveWithIterationCallback(2, 3, [0,1]));
+        // dd($dataset->all());
+        return view('welcome', ['dataset' => $dataset->except('iteration_count')]);
         // return $space->solveAndGroupPointByCluster(2);
         // return $space->solveAndroupClusterByPoint(2);
-
-        return view('welcome', ['data' => $data]);
     }
 
 }
