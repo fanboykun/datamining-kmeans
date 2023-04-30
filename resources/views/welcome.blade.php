@@ -19,47 +19,45 @@
                 font-family: 'Nunito', sans-serif;
             }
         </style>
-        <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" rel="stylesheet" type="text/css" />
-        <script src="https://cdn.tailwindcss.com"></script>
          @vite(['resources/css/app.css', 'resources/js/guest.js'])
          @livewireStyles()
          @stack('styles')
     </head>
     <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            <div class="min-w-full mx-auto sm:px-6 lg:px-8">
-                <div><h1>Iteration Count :{{ $dataset->count() }}</h1></div>
+        <div>
+            <div>
+                <h1>Iteration Count :{{ $dataset->count() }}</h1>
+            </div>
+            <div class="py-4">
                 @foreach ($dataset as $key => $data)
+                <div>
+                    <h3>Iteration Number :{{ $key }}</h3>
+                </div>
                 <div class="overflow-x-auto py-4 max-h-64">
-                <div><h3>Iteration Number :{{ $key }}</h3></div>
                     <table class="table w-full">
-                      <!-- head -->
-                      <thead>
+                    <!-- head -->
+                    <thead>
                         <tr>
-                          <th>Cluster</th>
-                          <th>Points Count</th>
-                          <th>Centroid</th>
-                          {{-- <th>Distance</th>
-                          <th>Cluster</th> --}}
+                        <th>Cluster</th>
+                        <th>Points Count</th>
+                        <th>Centroid</th>
                         </tr>
-                      </thead>
-                      <tbody>
+                    </thead>
+                    <tbody>
                         @foreach ($data as $k => $clusters)
                         <tr>
-                          <th>{{ $k }}</th>
-                          <td>{{ $clusters['points_count'] }}</td>
-                          <td>
+                        <th>{{ $k }}</th>
+                        <td>{{ $clusters['points_count'] }}</td>
+                        <td>
                             {{ "[" }}
                             @foreach ($clusters['centroid'] as $c => $center )
                             {{ $center }},
                             @endforeach
                             {{ "]" }}
-                          </td>
-                          {{-- <td>Blue</td>
-                          <td>Blue</td> --}}
+                        </td>
                         </tr>
                         @endforeach
-                      </tbody>
+                    </tbody>
                     </table>
                 </div>
                 @endforeach
@@ -69,3 +67,5 @@
         @stack('scripts')
     </body>
 </html>
+
+
